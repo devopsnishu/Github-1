@@ -41,8 +41,9 @@ jobs:
            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
            SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} 
       -  name: API with curl
-         run: |
-              status_sonar=$(curl -u "https://sonarcloud.io/api/system/status" | grep "\"status\":\"UP\"" > /dev/null; echo $?);
+         run: |  
+            curl -x "https://sonarcloud.io/project/overview?id=devopsnishu_github-example-package'&metrickeys=coverage,code_smells,vulnerabilities'
+
             
             
         
