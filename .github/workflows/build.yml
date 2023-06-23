@@ -40,5 +40,9 @@ jobs:
          env:
            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
            SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} 
+      -  name: API with curl
+          run:|
+           curl -u ${{ secrets.SONAR_TOKEN }}:${{ secrets.SONAR_HOST_URL }}'/api/measures/component?additionalFields=metrics&componentkey= '${{ secrets.Sonar_projectKey }}'&metrickeys=coverage,code_smells,vulnerabilities'
+        
            
      
