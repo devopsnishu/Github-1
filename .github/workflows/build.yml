@@ -42,7 +42,7 @@ jobs:
            SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} 
       -  name: API with curl
          run: |
-             curl -x GET https://sonarcloud.io/dashboard'/api/measures/component?additionalFields=metrics&componentkey= '${{ secrets.Sonar_projectKey }}'&metrickeys=coverage,code_smells,vulnerabilities'
+              status_sonar=$(curl -u "https://sonarcloud.io/api/system/status" | grep "\"status\":\"UP\"" > /dev/null; echo $?);
             
             
         
