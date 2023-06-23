@@ -42,7 +42,7 @@ jobs:
            SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} 
       -  name: API with curl
          run: |  
-            curl -x https://sonarcloud.io/project/overview?id=devopsnishu_Github-Action'&metrickeys=coverage,code_smells,vulnerabilities'
+            curl -x GET https://sonarcloud.io/component_measures?id=devopsnishu_Github-Action&metrickeys=coverage,code_smells,vulnerabilities'
 
             
             
